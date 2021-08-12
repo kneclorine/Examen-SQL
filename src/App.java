@@ -52,13 +52,16 @@ public class App {
         pizzaDAO.add(carbonara);
 
 
-        UUID idUser2 = UUID.randomUUID();
-        User user2 = new User("Alex", "Garcia", "eMail", "password");
-        user2.generateID(idUser2);
-        userDAO.add(user2);
+        UUID idUser1 = UUID.randomUUID();
+        User user1 = new User("Alex", "Garcia", "eMail", "password");
+        user1.generateID(idUser1);
+        userDAO.add(user1);
+
+        User selectUser1 = userDAO.get(user1.getId());
+        System.out.println("Usuario: "+selectUser1.getName() + " " + selectUser1.getLastName());
 
         UUID idComment1 = UUID.randomUUID();
-        Comment comment1 = new Comment("Esto es texto", 5, "12/08/2021", user2.getId(), carbonara.getId());
+        Comment comment1 = new Comment("Esto es texto", 5, "12/08/2021", user1.getId(), carbonara.getId());
         comment1.generateID(idComment1);
         commentDAO.add(comment1);
     }

@@ -44,7 +44,7 @@ public class UserDAO implements WriteDAO<User>, ReadDAO<User>{
 
         this.connection = ConnectionFactory.getInstance().getConnection();
 
-        String sql = "SELECT name, lastName, email, password FROM ingredient WHERE id=?";
+        String sql = "SELECT name, lastName, email, password FROM user WHERE id=?";
         
         preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setBytes(1, Converter.fromUUIDtoByteArray(id));
